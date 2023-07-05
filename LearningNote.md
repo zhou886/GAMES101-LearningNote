@@ -582,13 +582,17 @@ $$
 
 ### 观测变换 Viewing transformation
 
-#### 视图变换 View/Camera Transformation
-
 想象以下如何拍一张照片：
 
 1. 把目标物摆好(**model** transformation)
-2. 把相机摆好(**view transformation**)
+2. 把相机摆好(**view** transformation)
 3. 拍照(**projection** transformation)
+
+#### 模型变换 Model Transformation
+
+借助上面的变换方式把所有模型摆放在正确的位置上.
+
+#### 视图变换 View/Camera Transformation
 
 <img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703212011707.png" alt="image-20230703212011707" style="zoom:67%;" />
 
@@ -801,3 +805,112 @@ n & 0 & 0 & 0\\
 \end{align*}
 $$
 
+![image-20230704211633318](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230704211633318.png)
+
+如何定义一个视锥:
+
++ 长宽比 aspect ratio
+
++ 垂直可视角度 vertical field-of-view, fovY
++ 水平可视角度,可以由长宽比和垂直可视角度推出.
+
+可视角度越大,透视投影的效果越明显.
+
+![image-20230705183102510](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705183102510.png)
+
+## 光栅化 Rasterization
+
+在经过model transformation, view transformation, projection transformation之后,我们会得到一个$[-1,1]^3$的标准立方体,接下来就是把这个标准立方体投射到屏幕之上.
+
+屏幕是什么?
+
++ 一堆像素点
++ 分辨率, e.g. 720p
++ 光栅成像设备
+
+光栅化就是把东西画到屏幕上的过程.
+
+![image-20230705191534371](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705191534371.png)
+
+有关像素和屏幕的定义:
+
++ 像素的坐标从(0, 0)到(width - 1, heigth - 1)
++ 像素(x, y)中心的坐标为(x + 0.5, y + 0.5)
++ 整个屏幕覆盖(0, 0)到(width, height)
+
+![image-20230705191908810](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705191908810.png)
+
+把标准立方体变换到屏幕:
+
++ 忽视z方向
++ 把xy平面变换到屏幕大小: $[-1,1]^2 \to [0, width] \times [0, height]$
+
+变换矩阵为
+$$
+M_{viewport}=
+\begin{pmatrix}
+\frac{width}{2} & 0 & 0 & \frac{width}{2}\\
+0 & \frac{height}{2} & 0 & \frac{height}{2}\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+$$
+上述变换称为视口变换.
+
+### 三角形 基本形状单元 Triangles - Fundamental Shape Primitives
+
+为什么三角形是基本形状单元?
+
++ 三角形是最简单的多边形
++ 其他的多边形都可以拆分成三角形
++ 三角形有特别的性质
+  + 三角形一定是一个平面
+  + 三角形的内外很好确定
+  + 三角形重心插值方法明确
+
+### 把三角形投射到屏幕的像素上
+
+![image-20230705212919296](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705212919296.png)
+
+一个简单的方法就是采样离散化.
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705212956937.png" alt="image-20230705212956937" style="zoom: 33%;" /><img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705213003897.png" alt="image-20230705213003897" style="zoom: 33%;" />
+
+定义一个函数用来判断像素点是否在三角形内
+$$
+\mathbf{inside}(tri, x, y) =
+\left \{
+\begin{matrix}
+1 & (x,y)\;in\;triangle\;t \\
+0 & otherwise
+\end{matrix}
+\right .
+$$
+
+```c++
+for (int x = 0; x < xmax; x++)
+    for (int y = 0; y < ymax; y++)
+        image[x][y] = inside(tri,
+                            x + 0.5,
+                            y + 0.5);
+```
+
+$\mathbf{inside}(tri, x, y)$函数的原理是利用向量的叉乘来判断点和三角形的位置关系.
+
+判断$\Delta ABC$和$P$的位置关系:
+
+如果$\vec{AB} \times \vec{AP}$,$\vec{BC} \times \vec{BP}$,$\vec{CA} \times \vec{CP}$方向相同,则$P$在$\Delta ABC$内部,否则$P$在$\Delta ABC$外部.
+
+
+
+如果一个点在三角形的边上,可以不作考虑,或者特殊处理.
+
+![image-20230705215909721](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705215909721.png)
+
+在计算哪些点在三角形内部时,不需要计算平面中的所有点,只需要计算将三角形包围起来的最小正方形区域即可.该区域被称为包围盒(Bouding Box).
+
+
+
+![image-20230705220032329](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705220032329.png)
+
+在三角形比较特殊的情况下,可以利用上述方法来加速计算.
