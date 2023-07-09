@@ -68,7 +68,7 @@ The use of computers to synthesize and manipulate visual information.
 
 #### 缩放 Scale
 
-![image-20230701192827818](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701192827818.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701192827818.png" alt="image-20230701192827818" style="zoom:80%;" />
 
 缩放变换可以用如下方程表示
 $$
@@ -94,7 +94,7 @@ $$
 \end{bmatrix}
 $$
 
-![image-20230701193321184](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701193321184.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701193321184.png" alt="image-20230701193321184" style="zoom:80%;" />
 
 上图所示的缩放变换可以用如下方式表示
 $$
@@ -114,7 +114,7 @@ $$
 
 #### 翻转 Reflection
 
-![image-20230701193443783](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701193443783.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701193443783.png" alt="image-20230701193443783" style="zoom:80%;" />
 $$
 \begin{bmatrix}  
   x' \\
@@ -132,7 +132,7 @@ $$
 
 #### 错切 Shear
 
-![image-20230701193542288](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701193542288.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701193542288.png" alt="image-20230701193542288" style="zoom:80%;" />
 
 在竖直方向上，变换前后的y值没有变化。
 
@@ -154,7 +154,7 @@ $$
 
 #### 旋转 Rotate
 
-![image-20230701194028958](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701194028958.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701194028958.png" alt="image-20230701194028958" style="zoom:80%;" />
 
 正向旋转矩阵如下所示。
 $$
@@ -218,7 +218,7 @@ $$
 
 #### 为什么要引入齐次坐标
 
-![image-20230701200008157](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701200008157.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701200008157.png" alt="image-20230701200008157" style="zoom:80%;" />
 $$
 x' = x + t_x \\
 y' = y + t_y
@@ -270,12 +270,12 @@ $$
 #### 仿射变换 Affine Transformations
 
 仿射变换 = 线性变换 + 平移变换
+
 $$
 \begin{pmatrix} 
 x' \\
 y'
-\end{pmatrix}
-=
+\end{pmatrix}=
 \begin{pmatrix} 
 a & b \\
 c & d
@@ -290,14 +290,15 @@ t_x \\
 t_y
 \end{pmatrix}
 $$
+
 使用齐次坐标系后，上式可以写作
+
 $$
 \begin{pmatrix} 
 x' \\
 y' \\
 1
-\end{pmatrix}
-=
+\end{pmatrix} =
 \begin{pmatrix} 
 a & b & t_x\\
 c & d & t_y\\
@@ -347,25 +348,24 @@ $$
 
 $\mathbf{M}^{-1}$就是变换$\mathbf{M}$的逆变换。
 
-![image-20230701202203264](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701202203264.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701202203264.png" alt="image-20230701202203264" style="zoom:80%;" />
 
 ### 复合变换 Composite Transform
 
-![image-20230701202345372](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701202345372.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701202345372.png" alt="image-20230701202345372" style="zoom:80%;" />
 
 复杂的变换可以通过多个简单变换组合而成，复杂变换的矩阵就是多个简单变换矩阵的乘法，但是要注意**矩阵相乘的次序**。
 
 先平移后旋转
 
-![先平移后旋转](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701202352960.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701202352960.png" alt="先平移后旋转" style="zoom:80%;" />
 $$
 R_{45} \cdot T_{(1,0)}
 \begin{bmatrix}
 x \\
 y \\
 1
-\end{bmatrix}
-=
+\end{bmatrix} =
 \begin{bmatrix}
 1 & 0 & 1 \\
 0 & 1 & 0 \\
@@ -386,15 +386,14 @@ $$
 
 先旋转后平移
 
-![image-20230701202601440](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701202601440.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701202601440.png" alt="image-20230701202601440" style="zoom:80%;" />
 $$
 T_{(1,0)} \cdot R_{45}
 \begin{bmatrix}
 x \\
 y \\
 1
-\end{bmatrix}
-=
+\end{bmatrix} =
 \begin{bmatrix}
 \cos{45^{\circ}} & -\sin{45^{\circ}} & 1 \\
 \sin{45^{\circ}} & \cos{45^{\circ}} & 0 \\
@@ -418,7 +417,7 @@ $$
 
 ### 分解复杂变换 Decomposing Complex Transforms
 
-![image-20230701203701700](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701203701700.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230701203701700.png" alt="image-20230701203701700" style="zoom:80%;" />
 $$
 \mathbf{T}(c) \cdot \mathbf{R}(\alpha) \cdot \mathbf{T}(-c)
 $$
@@ -558,8 +557,7 @@ $$
 $$
 把三种旋转矩阵相乘即可得到任意旋转矩阵，如下所示
 $$
-\mathbf{R}_{xyz}(\alpha, \beta, \gamma)
-=
+\mathbf{R}_{xyz}(\alpha, \beta, \gamma) =
 \mathbf{R}_x(\alpha)
 \mathbf{R}_y(\beta)
 \mathbf{R}_z(\gamma)
@@ -594,7 +592,7 @@ $$
 
 #### 视图变换 View/Camera Transformation
 
-<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703212011707.png" alt="image-20230703212011707" style="zoom:67%;" />
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703212011707.png" alt="image-20230703212011707" style="zoom: 50%;" />
 
 如何确定相机？
 
@@ -609,7 +607,7 @@ $$
 + 相机永远放在坐标原点，y轴作为垂直方向，-z轴作为朝向
 + 随着相机移动变换对象
 
-![image-20230703212607102](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703212607102.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703212607102.png" alt="image-20230703212607102" style="zoom:80%;" />
 
 如何把相机固定到上述约定的位置：
 
@@ -662,17 +660,17 @@ $$
 + 正交投影 Orthographic projection
 + 透视投影 Perspective projection
 
-![image-20230703214326636](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703214326636.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703214326636.png" alt="image-20230703214326636" style="zoom:80%;" />
 
 透视投影有近大远小的性质,而正交投影没有.
 
-![image-20230703214439745](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703214439745.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703214439745.png" alt="image-20230703214439745" style="zoom:80%;" />
 
 正交投影认为相机无限远,而透视投影遵循透视法则.
 
 ##### 正交投影 Orthographic Projection
 
-![image-20230703221120081](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703221120081.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703221120081.png" alt="image-20230703221120081" style="zoom:80%;" />
 
 例如把立方体映射到正则立方体$[-1,1]^3$
 
@@ -699,14 +697,14 @@ $$
 
 ##### 透视投影 Perspective Project
 
-![image-20230703222325719](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703222325719.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703222325719.png" alt="image-20230703222325719" style="zoom:80%;" />
 
 如何做透视投影:
 
 1. 把Frustum变换成Cuboid,使用$M_{persp \to ortho}$
 2. 再做一次正交投影,使用$M_{ortho}$
 
-![image-20230703222605326](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703222605326.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230703222605326.png" alt="image-20230703222605326" style="zoom:80%;" />
 
 由相似三角形得
 $$
@@ -730,8 +728,7 @@ nx/z\\
 ny/z\\
 unknown\\
 1
-\end{pmatrix}
-==
+\end{pmatrix} ==
 \begin{pmatrix}
 nx\\
 ny\\
@@ -747,8 +744,7 @@ x\\
 y\\
 z\\
 1
-\end{pmatrix}
-=
+\end{pmatrix} =
 \begin{pmatrix}
 nx\\
 ny\\
@@ -758,8 +754,7 @@ z
 $$
 可以解得
 $$
-M_{persp \to ortho}
-=
+M_{persp \to ortho} =
 \begin{pmatrix}
 n & 0 & 0 & 0\\
 0 & n & 0 & 0\\
@@ -769,8 +764,7 @@ n & 0 & 0 & 0\\
 $$
 又因为在任何一个平行xoy平面的平面的z值不变,可以得
 $$
-M_{persp \to ortho}
-=
+M_{persp \to ortho} =
 \begin{pmatrix}
 n & 0 & 0 & 0\\
 0 & n & 0 & 0\\
@@ -805,7 +799,7 @@ n & 0 & 0 & 0\\
 \end{align*}
 $$
 
-![image-20230704211633318](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230704211633318.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230704211633318.png" alt="image-20230704211633318" style="zoom:80%;" />
 
 如何定义一个视锥:
 
@@ -816,7 +810,7 @@ $$
 
 可视角度越大,透视投影的效果越明显.
 
-![image-20230705183102510](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705183102510.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705183102510.png" alt="image-20230705183102510" style="zoom:80%;" />
 
 ## 光栅化 Rasterization
 
@@ -830,7 +824,7 @@ $$
 
 光栅化就是把东西画到屏幕上的过程.
 
-![image-20230705191534371](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705191534371.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705191534371.png" alt="image-20230705191534371" style="zoom:80%;" />
 
 有关像素和屏幕的定义:
 
@@ -838,7 +832,7 @@ $$
 + 像素(x, y)中心的坐标为(x + 0.5, y + 0.5)
 + 整个屏幕覆盖(0, 0)到(width, height)
 
-![image-20230705191908810](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705191908810.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705191908810.png" alt="image-20230705191908810" style="zoom:80%;" />
 
 把标准立方体变换到屏幕:
 
@@ -870,7 +864,7 @@ $$
 
 ### 把三角形投射到屏幕的像素上
 
-![image-20230705212919296](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705212919296.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705212919296.png" alt="image-20230705212919296" style="zoom:80%;" />
 
 一个简单的方法就是采样离散化.
 
@@ -905,12 +899,106 @@ $\mathbf{inside}(tri, x, y)$函数的原理是利用向量的叉乘来判断点�
 
 如果一个点在三角形的边上,可以不作考虑,或者特殊处理.
 
-![image-20230705215909721](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705215909721.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705215909721.png" alt="image-20230705215909721" style="zoom:50%;" />
 
 在计算哪些点在三角形内部时,不需要计算平面中的所有点,只需要计算将三角形包围起来的最小正方形区域即可.该区域被称为包围盒(Bouding Box).
 
 
 
-![image-20230705220032329](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705220032329.png)
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230705220032329.png" alt="image-20230705220032329" style="zoom: 33%;" />
 
 在三角形比较特殊的情况下,可以利用上述方法来加速计算.
+
+### 反走样 Antialiasing
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709202501563.png" alt="image-20230709202501563" style="zoom:33%;" />
+
+我们希望得到的图像.
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709202406073.png" alt="image-20230709202406073" style="zoom:33%;" />
+
+光栅化后得到的图像,存在锯齿(走样, aliasing).
+
+采样(Sampling)会产生一系列的问题(Sampling Artifacts):
+
++ 锯齿(Jaggies)
+
+  ![image-20230709202958805](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709202958805.png)
+
++ 摩尔纹(Moiré Patterns)
+
+  ![image-20230709203009235](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709203009235.png)
+
++ 马车车轮错觉(Wagon Wheel Illusion), 人眼在时间上的采样跟不上物体运动速度
+
+  ![image-20230709203202614](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709203202614.png)
+
++ Many more
+
+走样的原因: **信号变化速度太快(频率太高), 而采样速率太慢.**
+
+#### 滤波 Pre-Filter
+
+![image-20230709203510064](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709203510064.png)
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709203545373.png" alt="image-20230709203545373" style="zoom:33%;" />
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709203555469.png" alt="image-20230709203555469" style="zoom:33%;" />
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709203651890.png" alt="image-20230709203651890" style="zoom: 33%;" />
+
+先模糊后采样
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709203705020.png" alt="image-20230709203705020" style="zoom:33%;" />
+
+先采样后模糊,效果不对!
+
+问题:
+
++ 为什么降采样会导致瑕疵?
++ 为什么先模糊(滤波)再采样能够反走样?
+
+### 采样背后的信号原理
+
+已知傅里叶定理:任何一个连续函数都可以表示成多个正弦函数和余弦函数之和.
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709223715257.png" alt="image-20230709223715257" style="zoom:80%;" />
+$$
+f(x) = \frac{A}{2} + 
+\frac{2A\cos{(t\omega)}}{\pi} - 
+\frac{2A\cos{(3t\omega)}}{3\pi} + 
+\frac{2A\cos{(5t\omega)}}{5\pi} + \cdots
+$$
+由此可以延伸出傅里叶变换,把函数在时域和频域之间相互转化.
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709223945567.png" alt="image-20230709223945567" style="zoom:80%;" />
+
+
+
+如果我们把一张图像看做时域函数,则将其经过傅里叶变换之后可以得到它的频域函数,如下所示.
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709224109055.png" alt="image-20230709224109055" style="zoom:80%;" />
+
+频域图像中,中间部分代表低频信息,四周部分表示高频信息.
+
+
+
+如果我们将频域图像通过一个高通滤波器,再得到的时域图像如下所示.由此可知**高频信息表示图像的边缘信息,即变化剧烈的地方**.(时域变化剧烈，也就是信号变化得快，变化快就是频率高，说明信号中包含了高频分量)
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709224256187.png" alt="image-20230709224256187" style="zoom:80%;" />
+
+如果我们把频域图像通过一个低通滤波器,再得到的时域图像如下所示.可以发现只保留图像的低频信号相当于对图像进行模糊处理.
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709225522497.png" alt="image-20230709225522497" style="zoom:80%;" />
+
+带通滤波器效果则如下图所示,它会去除图像的基本和边缘.
+
+![image-20230709225607376](C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709225607376.png)
+
+在**频域上的滤波**,相当于在**频域上的卷积**.
+$$
+Fitering = Convolution
+$$
+时域上的卷积,等价于将图像和卷积核都变成频域后相乘的图像,如下所示.
+
+<img src="C:\Users\ZYX\Desktop\GAMES101计算机图形学入门\LearningNote.assets\image-20230709225847303.png" alt="image-20230709225847303" style="zoom:80%;" />
