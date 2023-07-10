@@ -71,6 +71,7 @@ The use of computers to synthesize and manipulate visual information.
 <img src=".\LearningNote.assets\image-20230701192827818.png" alt="image-20230701192827818" style="zoom:80%;" />
 
 缩放变换可以用如下方程表示
+
 $$
 {x}' = sx
 \\
@@ -97,6 +98,7 @@ $$
 <img src=".\LearningNote.assets\image-20230701193321184.png" alt="image-20230701193321184" style="zoom:80%;" />
 
 上图所示的缩放变换可以用如下方式表示
+
 $$
 \begin{bmatrix}  
   x' \\
@@ -138,6 +140,7 @@ $$
 在竖直方向上，变换前后的y值没有变化。
 
 在水平方向上，在最底下边的x值没有变化，沿y轴越往上x值就会增加ay。
+
 $$
 \begin{bmatrix}  
   x' \\
@@ -271,6 +274,7 @@ $$
 + 点 + 点 = ？
 
 在齐次坐标系中
+
 $$
 \begin{pmatrix} x \\ y \\ w \end{pmatrix} = \begin{pmatrix} x/w \\ y/w \\ 1 \end{pmatrix} , w \ne 0
 $$
@@ -422,6 +426,7 @@ y \\
 $$
 
 对同一个图像应用多个简单仿射变换，$\mathbf{A}_1,\mathbf{A}_2,...,\mathbf{A}_n$
+
 $$
 \mathbf{A}_n \cdots \mathbf{A}_2 \mathbf{A}_1 \cdot \mathbf{x}
 $$
@@ -536,6 +541,7 @@ $$
 #### 旋转变换
 
 绕x轴旋转
+
 $$
 \mathbf{R}_x(\alpha) = 
 \begin{pmatrix} 
@@ -545,7 +551,9 @@ $$
 0 & 0 & 0 & 1
 \end{pmatrix}
 $$
+
 绕y轴旋转
+
 $$
 \mathbf{R}_y(\alpha) = 
 \begin{pmatrix} 
@@ -555,9 +563,11 @@ $$
 0 & 0 & 0 & 1
 \end{pmatrix}
 $$
+
 注意，在绕y轴旋转中，$\sin{\alpha}$和$-\sin{\alpha}$的位置交换，这是因为$\hat{z} \times \hat{x} = \hat{y}$，y轴方向上的旋转和其他两个轴方向相反。
 
 绕z轴旋转
+
 $$
 \mathbf{R}_z(\alpha) = 
 \begin{pmatrix} 
@@ -567,16 +577,20 @@ $$
 0 & 0 & 0 & 1
 \end{pmatrix}
 $$
+
 把三种旋转矩阵相乘即可得到任意旋转矩阵，如下所示
+
 $$
 \mathbf{R}_{xyz}(\alpha, \beta, \gamma) =
 \mathbf{R}_x(\alpha)
 \mathbf{R}_y(\beta)
 \mathbf{R}_z(\gamma)
 $$
+
 上面所示的三个角度也称为欧拉角(Euler Angles)。
 
 罗德里戈旋转公式 Rodrigues' Rotation Formula
+
 $$
 \mathbf{R}(\mathbf{n}, \alpha) = 
 \cos{\alpha}\  \mathbf{I} +
@@ -629,6 +643,7 @@ $$
 + 在完成上述两个旋转的同时，剩下的一个坐标轴$\hat{g} \times \hat{t}$也完成到$X$的旋转
 
 用数学表示上述过程，用$M_{view}$记作变化矩阵。
+
 $$
 M_{view} = R_{view} T_{view}
 $$
@@ -690,6 +705,7 @@ $$
 2. 再做缩放
 
 用数学公式描述上述过程可得
+
 $$
 M_{ortho} = 
 \begin{bmatrix}
@@ -705,6 +721,7 @@ M_{ortho} =
 0 & 0 & 0 & 1
 \end{bmatrix}
 $$
+
 注意在本课程中由于使用右手系,所以"近处"n是大于"远处"f的.
 
 ##### 透视投影 Perspective Project
@@ -719,14 +736,19 @@ $$
 <img src=".\LearningNote.assets\image-20230703222605326.png" alt="image-20230703222605326" style="zoom:80%;" />
 
 由相似三角形得
+
 $$
 y'=\frac{n}{z}y
 $$
+
 同理可得
+
 $$
 x' = \frac{n}{z}x
 $$
+
 我们的目标是让
+
 $$
 \begin{pmatrix}
 x\\
@@ -748,7 +770,9 @@ still\ unknown\\
 z
 \end{pmatrix}
 $$
+
 即需要一个矩阵让上式成立
+
 $$
 M_{persp \to ortho}^{(4\times 4)}
 \begin{pmatrix}
@@ -764,7 +788,9 @@ unknown\\
 z
 \end{pmatrix}
 $$
+
 可以解得
+
 $$
 M_{persp \to ortho} =
 \begin{pmatrix}
@@ -774,7 +800,9 @@ n & 0 & 0 & 0\\
 0 & 0 & 0 & 1
 \end{pmatrix}
 $$
+
 又因为在任何一个平行xoy平面的平面的z值不变,可以得
+
 $$
 M_{persp \to ortho} =
 \begin{pmatrix}
@@ -852,6 +880,7 @@ $$
 + 把xy平面变换到屏幕大小: $[-1,1]^2 \to [0, width] \times [0, height]$
 
 变换矩阵为
+
 $$
 M_{viewport}=
 \begin{pmatrix}
@@ -861,6 +890,7 @@ M_{viewport}=
 0 & 0 & 0 & 1
 \end{pmatrix}
 $$
+
 上述变换称为视口变换.
 
 ### 三角形 基本形状单元 Triangles - Fundamental Shape Primitives
@@ -883,6 +913,7 @@ $$
 <img src=".\LearningNote.assets\image-20230705212956937.png" alt="image-20230705212956937" style="zoom: 33%;" /><img src=".\LearningNote.assets\image-20230705213003897.png" alt="image-20230705213003897" style="zoom: 33%;" />
 
 定义一个函数用来判断像素点是否在三角形内
+
 $$
 \mathbf{inside}(tri, x, y) =
 \left \{
@@ -977,18 +1008,19 @@ $\mathbf{inside}(tri, x, y)$函数的原理是利用向量的叉乘来判断点�
 已知傅里叶定理:任何一个连续函数都可以表示成多个正弦函数和余弦函数之和.
 
 <img src=".\LearningNote.assets\image-20230709223715257.png" alt="image-20230709223715257" style="zoom:80%;" />
+
 $$
 f(x) = \frac{A}{2} + 
 \frac{2A\cos{(t\omega)}}{\pi} - 
 \frac{2A\cos{(3t\omega)}}{3\pi} + 
 \frac{2A\cos{(5t\omega)}}{5\pi} + \cdots
 $$
+
 #### 傅里叶变换
 
 由此可以延伸出傅里叶变换,把函数在时域和频域之间相互转化.
 
 <img src=".\LearningNote.assets\image-20230709223945567.png" alt="image-20230709223945567" style="zoom:80%;" />
-
 
 
 如果我们把一张图像看做时域函数,则将其经过傅里叶变换之后可以得到它的频域函数,如下所示.
@@ -1014,14 +1046,14 @@ $$
 #### 卷积与滤波
 
 在**频域上的滤波**,相当于在**频域上的卷积**.
+
 $$
 Fitering = Convolution
 $$
+
 时域上的卷积,等价于将图像和卷积核都变成频域后相乘的图像,如下所示.
 
 <img src=".\LearningNote.assets\image-20230709225847303.png" alt="image-20230709225847303" style="zoom:80%;" />
-
-
 
 卷积核越大,该卷积核所对应的低通滤波器所允许通过的频率越低,处理后的画面越模糊.如下两张图所示,第一张图所示的卷积核较小,其对应的低通滤波器能通过的信号频率较高.第二张图则相反.
 
@@ -1084,9 +1116,11 @@ $$
 > 
 >
 > 重要结论: **如果不同的两个连续信号 x1(t)、x2(t)的频率满足一定条件，用频率Fs采样，得到的离散的"像" x1[n]和x2[n]不可区分**。 换句话说:  通过对x1(t)的采样， 我们实际上同时得到了$x1(t)$, $x2(t)$, 甚至 $x3(t), \cdots, xn(t)$ 的采样的像。 它们的“像”是完全等价的, 不可区分。这一组信号 $x_n(t)$ 只需满足:
+> 
 > $$
 > x_n(t) = \cos{( n \cdot Fs + f_1)}
 > $$
+> 
 > 其中n 是整数,Fs 是采样频率。也就是说，任何信号的采样，它不仅表示它自己，它还表示一族信号。这一族信号就是该信号的周期延延。在数学上，这一族信号中**不同的信号间的间隔为n\*Fs。**
 
 #### 如何减少采样造成的错误和瑕疵?
