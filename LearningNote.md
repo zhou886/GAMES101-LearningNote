@@ -115,6 +115,7 @@ $$
 #### 翻转 Reflection
 
 <img src=".\LearningNote.assets\image-20230701193443783.png" alt="image-20230701193443783" style="zoom:80%;" />
+
 $$
 \begin{bmatrix}  
   x' \\
@@ -157,6 +158,7 @@ $$
 <img src=".\LearningNote.assets\image-20230701194028958.png" alt="image-20230701194028958" style="zoom:80%;" />
 
 正向旋转矩阵如下所示。
+
 $$
 R_{\theta} =
 \begin{bmatrix}
@@ -176,14 +178,19 @@ R_{-\theta} =
 $$
 
 观察上面两个矩阵可以知道
+
 $$
 R_{-\theta} = {R_{\theta}}^T
 $$
+
 又根据定义可知
+
 $$
 R_{-\theta} = {R_{\theta}}^{-1}
 $$
+
 综上
+
 $$
 R_{-\theta} = {R_{\theta}}^{-1} = {R_{\theta}}^T
 $$
